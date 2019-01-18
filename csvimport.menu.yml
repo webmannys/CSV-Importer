@@ -1,0 +1,7 @@
+csvimport.admin:
+  title: 'CSV Import'
+  description: 'CSV import for Articles'
+  parent: system.admin_config_development
+  route_name: csvimport.content
+  url: internal:/admin/csvimport
+  weight: 100

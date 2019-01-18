@@ -1,0 +1,6 @@
+name: CSV Import
+description: Create Article Nodes though an import of a CSV file
+package: custom
+type: module
+version: 1.0
+core: 8.x
