@@ -39,7 +39,7 @@ class addImportContent
     private static function csv_add_article($item)
     {
 				
-        if (!file_destination('public://upload/' . $item['file'], FILE_EXISTS_ERROR))					
+        if (!file_destination('public://upload/' . $item['file'], FILE_EXISTS_ERROR) && $item['file'] != "")					
         {
 				
             // Create file object from a locally copied file.
@@ -56,7 +56,7 @@ class addImportContent
         $node_data['body']['value'] = preg_replace('/[\x00-\x1F\x7F-\xFF]/', '', $item['body']);
 
 
-        if (!file_destination('public://upload/' . $item['file'], FILE_EXISTS_ERROR))
+        if (!file_destination('public://upload/' . $item['file'], FILE_EXISTS_ERROR) && $item['file'] != "")
         {
             $node_data['field_image']['target_id'] = $file->id();
         }
