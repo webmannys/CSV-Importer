@@ -38,11 +38,12 @@ class addImportContent
     // Create a new Article node
     private static function csv_add_article($item)
     {
-
-        if (!file_destination('public://upload/' . $item['title'], FILE_EXISTS_ERROR))
+				
+        if (!file_destination('public://upload/' . $item['file'], FILE_EXISTS_ERROR))					
         {
+				
             // Create file object from a locally copied file.
-            $uri = file_unmanaged_copy('public://upload/' . $item['title'] . '.jpg', 'public://csv_images/' . $item['title'] . '.jpg', FILE_EXISTS_REPLACE);
+            $uri = file_unmanaged_copy('public://upload/' . $item['file'], 'public://csv_images/' . $item['file'], FILE_EXISTS_REPLACE);
 
             $file = File::Create([
                 'uri' => $uri,
@@ -55,7 +56,7 @@ class addImportContent
         $node_data['body']['value'] = preg_replace('/[\x00-\x1F\x7F-\xFF]/', '', $item['body']);
 
 
-        if (!file_destination('public://upload/' . $item['title'], FILE_EXISTS_ERROR))
+        if (!file_destination('public://upload/' . $item['file'], FILE_EXISTS_ERROR))
         {
             $node_data['field_image']['target_id'] = $file->id();
         }
