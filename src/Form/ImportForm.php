@@ -23,7 +23,7 @@ class ImportForm extends FormBase {
 
     $form['description'] = array(
       '#markup' => '<h4>Use this form to upload a CSV file of Data to create Article nodes</h4>
-                    <p>Download this <a href="/modules/custom/csvimport/sample/blank.csv" target="_blank">blank csv</a> to enter the data.</p>',
+                    <p>Download this <a href="/modules/custom/CSV-Importer/sample/blank.csv" target="_blank">blank csv</a> to enter the data.</p>',
     );
 
     $form['import_csv'] = array(
