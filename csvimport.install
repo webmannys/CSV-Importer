@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * @file
+ * Contains csvimport.install.
+ */
+
+ 
+//Installation routine to build the directories that will be used by the Importer.
+function csvimport_install() {
+	
+  // Create the upload directory and ensure it's writable.
+  $directory = file_default_scheme() . '://upload';
+  $mode = isset($GLOBALS['install_state']['mode']) ? $GLOBALS['install_state']['mode'] : NULL;
+  file_prepare_directory($directory, FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS, $mode);
+	
+	// Create the csv_images directory and ensure it's writable.
+  $directory = file_default_scheme() . '://csv_images';
+  $mode = isset($GLOBALS['install_state']['mode']) ? $GLOBALS['install_state']['mode'] : NULL;
+  file_prepare_directory($directory, FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS, $mode);
+	
+}
+
+//Uninstall of the directories created in the install.
+function csvimport_uninstall() {
+
+  // Remove the upload directory.
+  file_unmanaged_delete_recursive(file_default_scheme() . '://upload');
+	
+  // Remove the csv_images directory.
+  file_unmanaged_delete_recursive(file_default_scheme() . '://csv_images');
+	
+}
