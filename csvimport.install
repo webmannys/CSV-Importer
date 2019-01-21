@@ -27,7 +27,6 @@ function csvimport_uninstall() {
   // Remove the upload directory.
   file_unmanaged_delete_recursive(file_default_scheme() . '://upload');
 	
-  // Remove the csv_images directory.
-  file_unmanaged_delete_recursive(file_default_scheme() . '://csv_images');
+  // csv_images directory will not be removed because it will have images being used by the nodes created that had images.
 	
 }
